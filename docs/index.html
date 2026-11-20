@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>clash-convert — 分享链接转 Clash Verge 配置</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main>
+    <h1>clash-convert</h1>
+    <p class="lead">把 hysteria2 等分享链接转成可导入 Clash Verge 的 YAML。转换在你的浏览器里完成，链接不会被上传。</p>
+
+    <label for="links">分享链接（一行一个）</label>
+    <textarea id="links" placeholder="hysteria2://PASSWORD@HOST:PORT?alpn=h3&insecure=1&pinSHA256=FINGERPRINT#节点名"></textarea>
+
+    <div class="row">
+      <div>
+        <label for="region">地区</label>
+        <select id="region">
+          <option value="">自动识别（名称 / IP）</option>
+          <option value="US">🇺🇸 美国</option>
+          <option value="HK">🇭🇰 香港</option>
+          <option value="TW">🇹🇼 台湾</option>
+          <option value="JP">🇯🇵 日本</option>
+          <option value="SG">🇸🇬 新加坡</option>
+          <option value="KR">🇰🇷 韩国</option>
+          <option value="GB">🇬🇧 英国</option>
+          <option value="DE">🇩🇪 德国</option>
+          <option value="NL">🇳🇱 荷兰</option>
+          <option value="CA">🇨🇦 加拿大</option>
+          <option value="AU">🇦🇺 澳大利亚</option>
+        </select>
+      </div>
+      <div class="checks">
+        <input type="checkbox" id="geoip" checked>
+        <label for="geoip" style="margin:0;font-weight:500">名称没有地区时，按服务器 IP 识别</label>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="convert" type="button">生成配置</button>
+      <button class="ghost" id="download" type="button" disabled>下载 YAML</button>
+      <button class="ghost" id="copy" type="button" disabled>复制</button>
+    </div>
+    <div id="error"></div>
+    <div id="output-wrap">
+      <label for="output">生成结果</label>
+      <pre id="output"></pre>
+    </div>
+    <footer>
+      导入后请打开系统代理或 TUN，在「🟢 Proxy」中选中实际节点，并用 <a href="https://ipinfo.io" target="_blank" rel="noopener">ipinfo.io</a> 测试出口 IP。
+      源码与命令行工具见本项目仓库。
+    </footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
