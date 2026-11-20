@@ -2,6 +2,10 @@
 
 把 `hysteria2://` 等代理分享链接，转换成可直接导入 [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev) 的 Clash Meta / Mihomo YAML。
 
+**在线使用（点开即可转换并下载）：[https://faithshunaa.github.io/clash-convert/](https://faithshunaa.github.io/clash-convert/)**
+
+在浏览器里粘贴分享链接，生成配置后点击「下载 YAML」。转换在你的浏览器本地完成，链接不会被上传。
+
 常见在线转换器会套用「多地区机场」模板。如果节点名字里没有「美国」或 `US`，生成配置里的「🇺🇸 美国」分组就是空的；你看起来选了美国，流量其实走不了这个节点。本工具会：
 
 - 正确写入 `pin-sha256`、`alpn`、`skip-cert-verify`
@@ -18,7 +22,7 @@ cd clash-convert
 pip install -e .
 ```
 
-只想用网页版时，用浏览器打开 `docs/index.html`，或在仓库启用 GitHub Pages（Source 选 `docs` 目录）。转换在浏览器本地完成，链接不会被上传。
+不想安装命令行时，直接打开 [在线转换器](https://faithshunaa.github.io/clash-convert/)，或在本地用浏览器打开 `docs/index.html`。
 
 ## 命令行
 
@@ -90,4 +94,4 @@ pip install -e .
 clash-convert "hysteria2://PASSWORD@HOST:PORT?alpn=h3&insecure=1&pinSHA256=FINGERPRINT#name" -o config.yaml
 ```
 
-Open `docs/index.html` for a local, in-browser converter. In rule mode, test your exit IP on a site such as [ipinfo.io](https://ipinfo.io); Chinese IP-check sites are often matched as DIRECT.
+Use the [online converter](https://faithshunaa.github.io/clash-convert/), or open `docs/index.html` locally. In rule mode, test your exit IP on a site such as [ipinfo.io](https://ipinfo.io); Chinese IP-check sites are often matched as DIRECT.
