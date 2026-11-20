@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clash-convert"
+version = "1.0.0"
+description = "Convert hysteria2 and other proxy share links into Clash Verge YAML"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "clash-convert contributors"}]
+keywords = ["clash", "clash-verge", "hysteria2", "mihomo", "proxy"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Internet",
+]
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+clash-convert = "clash_convert.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/FAITHSHUNAA/clash-convert"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
